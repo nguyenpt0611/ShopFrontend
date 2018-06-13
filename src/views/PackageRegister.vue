@@ -91,7 +91,7 @@
                         </td>
                       </tr>
                       <tr class="border_bottom">
-                        <td class="fl">
+                        <td class="fl">git
                           <span class="txt_label">
                               Tên gói cước:
                           </span>
