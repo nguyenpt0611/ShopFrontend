@@ -1,5 +1,4 @@
 
-
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
@@ -17,6 +16,6 @@ pages:
   - yarn build
   artifacts:
     paths:
-    - public
+    - public/static
   only:
   - master
