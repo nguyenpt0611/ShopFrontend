@@ -3,9 +3,10 @@
 > A Vue.js project
 
 ## Build Setup
+``` bash
 # require install yarn
 npm install -g yarn
-``` bash
+
 # install dependencies
 npm install / yarn
 
