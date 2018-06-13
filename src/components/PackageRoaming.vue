@@ -1,12 +1,16 @@
-<template src="../views/PackageRoaming.html">
+<template src="../views/PackageRoaming.vue">
 </template>
-
 <script>
+import config from './mixins/dataconfig'
 export default {
   name: 'PackageRoaming',
-  data () {
+  mixins: [config],
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      data: {
+        freedoo_packages: config.data().roaming_packages.freedoo,
+        other_packages: config.data().roaming_packages.others,
+      }
     }
   }
 }

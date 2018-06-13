@@ -6,11 +6,11 @@
   border-top: 0;
   border-left: 0;
   border-right: 0;
-  -webkit-border-image: url("./assets/images/package_roaming/line.png") 30 round;
+  -webkit-border-image: url("./assets/images/line.png") 30 round;
   /* Safari 3.1-5 */
-  -o-border-image: url("./assets/images/package_roaming/line.png") 30 round;
+  -o-border-image: url("./assets/images/line.png") 30 round;
   /* Opera 11-12.1 */
-  border-image: url("./assets/images/package_roaming/line.png") 30 round;
+  border-image: url("./assets/images/line.png") 30 round;
   padding: 15px 0; }
 
 .main_header .info {
@@ -40,7 +40,7 @@
   margin-right: 10px; }
 
 .header_line {
-  background-image: url("./assets/images/package_roaming/line.png");
+  background-image: url("./assets/images/line.png");
   height: 1px;
   background-size: 100%; }
 
@@ -149,7 +149,7 @@
 .content-3 {
   width: 100%;
   background-color: #FFF;
-  background-image: url("./assets/images/package_roaming/goi-cuoc.jpg");
+  background-image: url("./assets/images/goi-cuoc.jpg");
   float: left;
   background-size: 100% 100%; }
 
@@ -160,12 +160,12 @@
   padding-right: 0px; }
 
 #service_sim1 {
-  background-image: url("./assets/images/package_roaming/banner-2.jpg");
+  background-image: url("./assets/images/banner-2.jpg");
   height: auto;
   background-size: 100% 100%; }
 
 #service_sim2 {
-  background-image: url("./assets/images/package_roaming/banner3.jpg");
+  background-image: url("./assets/images/banner3.jpg");
   height: auto;
   background-size: 100% 100%; }
 
@@ -1340,7 +1340,7 @@ label input[type="radio"] {
   color: #363636;
   float: left;
   background-repeat: no-repeat;
-  background-image: url("./assets/images/package_roaming/logo.png");
+  background-image: url("./assets/images/logo.png");
   background-position: 0 center;
   padding-left: 72px;
   padding-right: 24px;
@@ -1862,32 +1862,32 @@ label input[type="radio"] {
   color: #FFF; }
 
 .bg_10000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_20000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_30000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_50000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_100000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_200000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_300000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 .bg_500000 {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat; }
+  background: url("./assets/images/logo.png") no-repeat; }
 
 #sim_order .thumbnail {
   color: #FFF;
-  background: url("./assets/images/package_roaming/logo.png") no-repeat;
+  background: url("./assets/images/logo.png") no-repeat;
   border-radius: 0;
   border: none;
   margin: 0 auto;
@@ -2166,7 +2166,7 @@ ul.form-group-radio li {
   margin-bottom: 10px; }
 
 .list_package .bg_discount {
-  background: url("./assets/images/package_roaming/logo.png") no-repeat right top; }
+  background: url("./assets/images/logo.png") no-repeat right top; }
 
 .list_package .item .title a, .list_package .item .title a:hover, .list_package .item .title a:active, .list_package .item .title a:visited {
   color: #d91a61;
@@ -2979,7 +2979,7 @@ ul.form-group-radio li {
     font-size: 30px !important; }
 
   .content-3 {
-    background-image: url("./assets/images/package_roaming/logo.png") !important;
+    background-image: url("./assets/images/logo.png") !important;
     background-size: 100% 100% !important; }
 
   .icon_header {

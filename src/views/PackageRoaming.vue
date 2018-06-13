@@ -5,7 +5,7 @@
         <div id="block_package_banner">
           <div class="package_banner_slider">
             <div class="item">
-              <img src="../assets/images/package_roaming/package_banner_3-min.jpg" alt="image">
+              <img src="../assets/images/package_banner_3-min.jpg" alt="image">
             </div>
           </div>
         </div>
@@ -20,40 +20,40 @@
                         <li role="presentation" class="active">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="13">
-                            <img src="../assets/images/package_roaming/package_hot.png">
+                            <img src="../assets/images/package_hot.png">
                             HOT nhất </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_prepaid" role="tab"
                              data-toggle="tab" data-type="1">
-                            <img src="../assets/images/package_roaming/package_prepaid.png">
+                            <img src="../assets/images/package_prepaid.png">
                             Gói trả trước </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_postpaid" role="tab"
                              data-toggle="tab" data-type="2">
-                            <img src="../assets/images/package_roaming/package_postpaid.png">
+                            <img src="../assets/images/package_postpaid.png">
                             Gói trả sau </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="3">
-                            <img src="../assets/images/package_roaming/package_data.png">
+                            <img src="../assets/images/package_data.png">
                             Gói data </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="4">
-                            <img src="../assets/images/package_roaming/package_vas.png">
+                            <img src="../assets/images/package_vas.png">
                             DV GTGT </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_flexible" role="tab"
                              data-toggle="tab" data-type="11">
-                            <img src="../assets/images/package_roaming/package_flexible.png">
+                            <img src="../assets/images/package_flexible.png">
                             Gói linh hoạt </a>
                         </li>
                       </ul>
@@ -63,18 +63,20 @@
                         <div class="col-sm-6">
                           <div class="msisdn_search_filter">
                             <form class="form">
-                              <input value="" type="hidden">
                               <div class="row">
                                 <div class="col-sm-12">
                                   <div class="title">
                                     <label>Gói cước của bạn</label>
                                   </div>
                                 </div>
+                                <!--<boo></boo>-->
                                 <div class="col-sm-12">
                                   <div class="search">
-                                    <input id="input_msisdn" class="form-control input-search" maxlength="20" placeholder="Nhập SĐT để tìm gói cước ưu đãi dành riêng cho bạn" name="SearchPackageForm[msisdn]" type="text">
+                                    <input type="text" id="input_msisdn" class="form-control input-search"
+                                           name="SearchPackageForm[msisdn]" maxlength="20"
+                                           placeholder="Nhập SĐT để tìm gói cước ưu đãi dành riêng cho bạn">
                                     <button type="button" class="btn btn-search" id="btn_search_msisdn">
-                                      <img src="../assets/images/package_roaming/package_search_icon.png">
+                                      <img src="../assets/images/package_search_icon.png">
                                     </button>
                                   </div>
                                 </div>
@@ -131,7 +133,7 @@
                             </div>
                           </div>
                         </div>
-                        <!--<div class="col-sm-6 package_search_filter_separator">
+                        <div class="col-sm-6 package_search_filter_separator">
                           <div class="package_search_filter">
                             <form class="form" id="searchpackage-form">
                               <input value="7cd73fd38b2653b2d0cb022c5f3c6d6911d2069f"
@@ -182,7 +184,7 @@
 
                                     <button type="button" class="btn btn-search"
                                             onclick="filteringPackages()">
-                                      <img src="../assets/images/package_roaming/package_search_icon.png">
+                                      <img src="../assets/images/package_search_icon.png">
                                     </button>
 
                                   </div>
@@ -192,12 +194,12 @@
 
                             </form>
                           </div>
-                        </div>-->
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <!--<div class="block_package_container">
+                <div class="block_package_container">
                   <div id="packages_tabs" class="tab-content content">
                     <div role="tabpanel" class="tab-pane active" id="block_package_hot"
                          data-type="13">
@@ -210,134 +212,55 @@
                           </div>
                           <div class="content">
                             <div class="block_package">
-                              <div class="row">
-                                <div class="col-sm-4">
+                              <div v-if="data.freedoo_packages && data.freedoo_packages.length" class="row">
+                                <div class="col-sm-4" v-for="item of data.freedoo_packages" v-bind:key="item.id">
                                   <div class="item_package">
                                     <div class="title">
                                       <a href="#">
-                                        <h4>
-                                          FHAPPY </h4>
-                                        <p>Gói trả trước</p>
+                                        <h4>{{item.name}}</h4>
+                                        <p>{{item.type}}</p>
                                       </a>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="package_description">
-
-
                                       <div class="call_des">
                                         <div class="row">
                                           <div class="col-3">
-                        <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
-                        </span>
+                <span class="package_icon">
+                    <img src="../assets/images/package_icon_phonewave.png">
+                </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
-                                              <p>1.000 phút gọi nội mạng
-                                                VinaPhone</p>
+                                              <p>{{item.call_content}}</p>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-
 
                                       <div class="data_des">
                                         <div class="row">
                                           <div class="col-3">
-                        <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phonewave.png">
-                        </span>
+                <span class="package_icon">
+                    <img src="../assets/images/package_icon_phone.png">
+                </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
-                                              <p>60 GB Data tốc độ cao</p>
+                                              <p>{{item.data_content}}</p>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-
-
                                     </div>
-
-
                                     <div class="price">
-                                      49.000<sup>đ</sup><span>/tháng</span>
+                                      {{item.price}}<sup>đ</sup><span>/{{item.period}}</span>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="action text-center">
-                                      <a href="#"
+                                      <router-link :to="{name: 'PackageRegister', params:{name:item.name}}"
                                          class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-4">
-                                  <div class="item_package">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          FCLUB </h4>
-                                        <p>Gói trả trước</p>
-
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="call_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                        <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
-                        </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              <p>1.500 phút gọi nội mạng
-                                                VinaPhone</p>
-                                              <p>60 phút gọi ngoại
-                                                mạng</p></div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-
-                                      <div class="data_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                        <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phonewave.png">
-                        </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              <p>90 GB Data tốc độ cao</p>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-
-                                    </div>
-
-
-                                    <div class="price">
-                                      79.000<sup>đ</sup><span>/tháng</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
+                                        Đăng ký </router-link>
                                     </div>
                                   </div>
                                 </div>
@@ -346,358 +269,46 @@
                           </div>
                         </div>
                       </div>
-
                       <div class="package_other">
                         <div class="container">
                           <div class="title text-center">
                             <h3>Các gói cước ưu đãi khác</h3>
                           </div>
-
                           <div class="content">
                             <div class="block_package block_package_other">
-
-                              <div class="row">
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
+                              <div v-if="data.other_packages && data.other_packages.length" class="row">
+                                <div class="col-sm-4" v-for="item of data.other_packages" v-bind:key="item.id">
+                                  <div class="item_package">
                                     <div class="title">
                                       <a href="#">
-                                        <h4>
-                                          MOBILETV </h4>
-                                        <p>&nbsp;</p>
+                                        <h4>{{item.name}}</h4>
+                                        <p>{{item.type}}</p>
                                       </a>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="package_description">
-
-
                                       <div class="short_des">
-                                        <div class="row">
+                                        <div v-for="des of item.content" v-bind:key="item.id" class="row">
                                           <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
+                                            <span class="package_icon">
+                                                <img src="../assets/images/check.png"
+                                                     style="width:19px; margin-left:1px">
+                                            </span>
                                           </div>
                                           <div class="col-9">
-                                            <div class="content">
-                                              Dịch vụ cho phép toàn bộ
-                                              thuê bao (trả sau, trả
-                                              trước) của Vinaphone có thể
-                                              xem TiVi trực tiếp (Live TV)
-                                              trên máy di động của mình
-                                              mọi lúc, mọi nơi sử dụng
-                                              mạng GPRS/EDGE hoặc 3G/4G.
-                                            </div>
+                                            <div class="content">{{des}}</div>
                                           </div>
                                         </div>
                                       </div>
-
                                     </div>
-
                                     <div class="price">
-                                      10.000<sup>đ</sup><span>/tuần</span>
+                                      {{item.price}}<sup>đ</sup><span>/{{item.period}}</span>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          DICHVUTHUOC </h4>
-                                        <p>&nbsp;</p>
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="short_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              - Cung cấp thông tin y tế,
-                                              sức khỏe, bệnh dịch và
-                                              phòng/chữa bệnh hữu ích phục
-                                              vụ cho việc bảo vệ sức khỏe
-                                              cộng đồng, gia đình và cá
-                                              nhân.
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              - Cung cấp video, clip về
-                                              bản tin Y tế nổi bật trong
-                                              ngày, những nghiên cứu y
-                                              khoa mới nhất...
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="price">
-                                      1.000<sup>đ</sup><span>/ngày</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          90PHUT </h4>
-                                        <p>&nbsp;</p>
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="short_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              TRẬN CẦU VÀNG
-                                            </div>
-                                          </div>
-                                        </div>
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              Cung cấp thông tin mỗi ngày
-                                              về một trận đấu bóng đá đỉnh
-                                              cao được nhiều người trông
-                                              đợi với những bình luận
-                                              chính xác được chuyên gia
-                                              hàng đầu nhận định như kèo
-                                              phụ sáng nhất, phạt góc,
-                                              bóng rung, ném biên....
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="price">
-                                      2.000<sup>đ</sup><span>/ngày</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          KIDSAFE </h4>
-                                        <p>&nbsp;</p>
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="short_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              Dịch vụ Kidsafe là dịch vụ
-                                              giúp cho cha/mẹ là các thuê
-                                              bao của Vinaphone có thể
-                                              quản lý việc sử dụng điện
-                                              thoại di động của con mình
-                                              một cách hiệu quả và có ích.
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="price">
-                                      7.000<sup>đ</sup><span>/tuần</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          VCLIP </h4>
-                                        <p>&nbsp;</p>
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="short_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              Khách hàng đăng ký gói cước
-                                              VIP tháng của dịch vụ vClip
-                                              được trở thành thành viên
-                                              VIP trên trang
-                                              http://clip.vn trong 30 ngày
-                                              có giá trị tương đương
-                                              60.000VNĐ/tháng: Xem phim
-                                              tốc độ cao, có bản quyền,
-                                              chất lượng full HD, không
-                                              quảng cáo.
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="price">
-                                      30.000<sup>đ</sup><span>/tháng</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-sm-4">
-                                  <div class="item_package item_package_other">
-                                    <div class="title">
-                                      <a href="#">
-                                        <h4>
-                                          CEME </h4>
-                                        <p>&nbsp;</p>
-                                      </a>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="package_description">
-
-
-                                      <div class="short_des">
-                                        <div class="row">
-                                          <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
-                                          </div>
-                                          <div class="col-9">
-                                            <div class="content">
-                                              CeeMe là ứng dụng kết nối
-                                              giữa người hâm mộ với thần
-                                              tượng, người nổi tiếng thuộc
-                                              đa dạng các lĩnh vực (giải
-                                              trí, thể thao, kinh tế,
-                                              chính trị, khoa học…).
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-
-                                    </div>
-
-                                    <div class="price">
-                                      10.000<sup>đ</sup><span>/tuần</span>
-                                    </div>
-
-                                    <div class="item_package_separator"></div>
-
-                                    <div class="action text-center">
-                                      <a href="#"
-                                         class="btn btn-register">
-                                        Đăng ký </a>
+                                      <router-link :to="{name: 'PackageRegister', params:{name:item.name}}"
+                                                   class="btn btn-register">
+                                        Đăng ký </router-link>
                                     </div>
                                   </div>
                                 </div>
@@ -706,13 +317,8 @@
                           </div>
                         </div>
                       </div>
-
-
                     </div>
-
-
-                    <div role="tabpanel" class="tab-pane " id="block_package_prepaid" data-type="1">
-
+                    <!--<div role="tabpanel" class="tab-pane " id="block_package_prepaid" data-type="1">
                       <div class="package_freedoo">
                         <div class="container">
                           <div class="title text-center">
@@ -743,7 +349,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -760,7 +366,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                            <img src="../assets/images/package_icon_phonewave.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -808,7 +414,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -826,7 +432,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                            <img src="../assets/images/package_icon_phonewave.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -889,7 +495,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -905,7 +511,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -920,7 +526,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                                    <img src="../assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -966,7 +572,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -982,7 +588,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1028,7 +634,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1078,7 +684,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1092,7 +698,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1105,7 +711,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1151,7 +757,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1197,7 +803,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1211,7 +817,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1224,7 +830,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1272,7 +878,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1288,7 +894,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1303,7 +909,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                                    <img src="../assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -1349,7 +955,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1363,7 +969,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1409,7 +1015,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1459,7 +1065,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1473,7 +1079,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1519,7 +1125,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1533,7 +1139,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1546,7 +1152,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1593,7 +1199,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1606,7 +1212,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1620,7 +1226,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1634,7 +1240,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1682,7 +1288,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1696,7 +1302,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1743,7 +1349,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1757,7 +1363,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1770,7 +1376,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1817,7 +1423,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1831,7 +1437,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1879,7 +1485,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1895,7 +1501,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1910,7 +1516,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                                    <img src="../assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -1956,7 +1562,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1970,7 +1576,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1983,7 +1589,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2031,7 +1637,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2045,7 +1651,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2058,7 +1664,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2106,7 +1712,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2119,7 +1725,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2134,7 +1740,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2180,7 +1786,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2193,7 +1799,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2207,7 +1813,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2220,7 +1826,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2267,7 +1873,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2316,7 +1922,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2330,7 +1936,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2343,7 +1949,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2389,7 +1995,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2403,7 +2009,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2450,7 +2056,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2464,7 +2070,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2477,7 +2083,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2490,7 +2096,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2503,7 +2109,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2552,7 +2158,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2569,7 +2175,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2615,7 +2221,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2662,7 +2268,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2712,7 +2318,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2728,7 +2334,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2743,7 +2349,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                                    <img src="../assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -2789,7 +2395,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2804,7 +2410,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2851,7 +2457,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2868,7 +2474,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2916,7 +2522,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2932,7 +2538,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2978,7 +2584,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3030,7 +2636,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3045,7 +2651,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3058,7 +2664,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3071,7 +2677,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3120,7 +2726,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_phone.png">
+                            <img src="../assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -3136,7 +2742,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_roaming/package_icon_sms.png">
+                            <img src="../assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -3151,7 +2757,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_roaming/package_icon_phonewave.png">
+                                    <img src="../assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -3197,7 +2803,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3212,7 +2818,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3259,7 +2865,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3273,7 +2879,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3286,7 +2892,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3299,7 +2905,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3312,7 +2918,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3361,7 +2967,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3375,7 +2981,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3388,7 +2994,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3401,7 +3007,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3449,7 +3055,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3463,7 +3069,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3476,7 +3082,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3489,7 +3095,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3502,7 +3108,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3549,7 +3155,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3564,7 +3170,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3612,7 +3218,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3627,7 +3233,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3640,7 +3246,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3653,7 +3259,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3700,7 +3306,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3715,7 +3321,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3761,7 +3367,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3775,7 +3381,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3788,7 +3394,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3801,7 +3407,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3850,7 +3456,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3864,7 +3470,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3877,7 +3483,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3923,7 +3529,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3937,7 +3543,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3950,7 +3556,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3996,7 +3602,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4045,7 +3651,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4095,7 +3701,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4142,7 +3748,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4157,7 +3763,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4170,7 +3776,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4219,7 +3825,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4233,7 +3839,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4246,7 +3852,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4293,7 +3899,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4308,7 +3914,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4321,7 +3927,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4367,7 +3973,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4416,7 +4022,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4430,7 +4036,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4443,7 +4049,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4489,7 +4095,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4503,7 +4109,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4550,7 +4156,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4564,7 +4170,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4577,7 +4183,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4621,11 +4227,8 @@
 
 
                     </div>
-
-
                     <div role="tabpanel" class="tab-pane " id="block_package_postpaid"
                          data-type="2">
-
                       <div class="package_freedoo">
                         <div class="container">
                           <div class="title text-center">
@@ -4656,7 +4259,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4670,7 +4273,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4683,7 +4286,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4697,7 +4300,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4710,7 +4313,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4723,7 +4326,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4776,7 +4379,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4790,7 +4393,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4803,7 +4406,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4817,7 +4420,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4830,7 +4433,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4878,7 +4481,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4892,7 +4495,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4905,7 +4508,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4919,7 +4522,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4932,7 +4535,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4986,7 +4589,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5000,7 +4603,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5013,7 +4616,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5027,7 +4630,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5040,7 +4643,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5053,7 +4656,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5117,7 +4720,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5131,7 +4734,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5145,7 +4748,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5159,7 +4762,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5172,7 +4775,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5218,7 +4821,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5232,7 +4835,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5246,7 +4849,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5259,7 +4862,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5272,7 +4875,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5318,7 +4921,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5332,7 +4935,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5346,7 +4949,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5360,7 +4963,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5373,7 +4976,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5421,7 +5024,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5435,7 +5038,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5449,7 +5052,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5463,7 +5066,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5476,7 +5079,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5522,7 +5125,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5537,7 +5140,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5552,7 +5155,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5566,7 +5169,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5612,7 +5215,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5627,7 +5230,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5642,7 +5245,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5655,7 +5258,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5703,7 +5306,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5718,7 +5321,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5733,7 +5336,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5747,7 +5350,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5793,7 +5396,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5808,7 +5411,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5823,7 +5426,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5836,7 +5439,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5850,7 +5453,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5896,7 +5499,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5910,7 +5513,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5924,7 +5527,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5938,7 +5541,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5951,7 +5554,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5999,7 +5602,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6013,7 +5616,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6027,7 +5630,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6041,7 +5644,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6054,7 +5657,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6100,7 +5703,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6114,7 +5717,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6128,7 +5731,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6142,7 +5745,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6155,7 +5758,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6201,7 +5804,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6216,7 +5819,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6231,7 +5834,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6245,7 +5848,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6293,7 +5896,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6308,7 +5911,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6323,7 +5926,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6369,7 +5972,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6384,7 +5987,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6399,7 +6002,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6445,7 +6048,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6460,7 +6063,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6475,7 +6078,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6489,7 +6092,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6537,7 +6140,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6552,7 +6155,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6567,7 +6170,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6580,7 +6183,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6594,7 +6197,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6640,7 +6243,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6655,7 +6258,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6670,7 +6273,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6683,7 +6286,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6729,7 +6332,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6743,7 +6346,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6757,7 +6360,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6771,7 +6374,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6785,7 +6388,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6833,7 +6436,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6847,7 +6450,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6861,7 +6464,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6875,7 +6478,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6888,7 +6491,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6934,7 +6537,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6949,7 +6552,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6964,7 +6567,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6978,7 +6581,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6992,7 +6595,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7038,7 +6641,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7053,7 +6656,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7068,7 +6671,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7082,7 +6685,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7130,7 +6733,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7145,7 +6748,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7160,7 +6763,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7206,7 +6809,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7221,7 +6824,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7236,7 +6839,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7250,7 +6853,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7296,7 +6899,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7310,7 +6913,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7324,7 +6927,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7338,7 +6941,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7351,7 +6954,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7399,7 +7002,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7413,7 +7016,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7427,7 +7030,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7441,7 +7044,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7454,7 +7057,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7500,7 +7103,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7515,7 +7118,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7530,7 +7133,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7544,7 +7147,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7558,7 +7161,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7604,7 +7207,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7618,7 +7221,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7632,7 +7235,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7646,7 +7249,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7660,7 +7263,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7708,7 +7311,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7723,7 +7326,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7738,7 +7341,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7784,7 +7387,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7799,7 +7402,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7814,7 +7417,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7827,7 +7430,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7873,7 +7476,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7887,7 +7490,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7901,7 +7504,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7915,7 +7518,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7964,7 +7567,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7979,7 +7582,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7994,7 +7597,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8007,7 +7610,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8053,7 +7656,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8068,7 +7671,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8083,7 +7686,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8097,7 +7700,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8143,7 +7746,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8158,7 +7761,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8173,7 +7776,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8187,7 +7790,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8236,7 +7839,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8253,7 +7856,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8299,7 +7902,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8314,7 +7917,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8329,7 +7932,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8343,7 +7946,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8389,7 +7992,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8403,7 +8006,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8417,7 +8020,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8431,7 +8034,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8444,7 +8047,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8492,7 +8095,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8507,7 +8110,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8522,7 +8125,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8536,7 +8139,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8582,7 +8185,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8597,7 +8200,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8612,7 +8215,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8658,7 +8261,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8672,7 +8275,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8686,7 +8289,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8700,7 +8303,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8713,7 +8316,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8761,7 +8364,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8775,7 +8378,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8789,7 +8392,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8803,7 +8406,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8816,7 +8419,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8862,7 +8465,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8876,7 +8479,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8890,7 +8493,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8904,7 +8507,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8950,7 +8553,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8964,7 +8567,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8978,7 +8581,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8992,7 +8595,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9005,7 +8608,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9053,7 +8656,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9068,7 +8671,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9083,7 +8686,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9097,7 +8700,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9143,7 +8746,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9158,7 +8761,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9173,7 +8776,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9187,7 +8790,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9201,7 +8804,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9247,7 +8850,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9262,7 +8865,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9277,7 +8880,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9321,17 +8924,12 @@
 
 
                     </div>
-
-
                     <div role="tabpanel" class="tab-pane " id="block_package_data" data-type="3">
-
-
                       <div class="package_other">
                         <div class="container">
                           <div class="title text-center">
                             <h3>Các gói cước ưu đãi khác</h3>
                           </div>
-
                           <div class="content">
                             <div class="block_package block_package_other">
 
@@ -9345,19 +8943,15 @@
                                         <p>&nbsp;</p>
                                       </a>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="package_description">
-
-
                                       <div class="short_des">
                                         <div class="row">
                                           <div class="col-3">
-                            <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
-                                     style="width:19px; margin-left:1px">
-                            </span>
+                                            <span class="package_icon">
+                                                <img src="../assets/images/check.png"
+                                                     style="width:19px; margin-left:1px">
+                                            </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
@@ -9368,15 +8962,11 @@
                                           </div>
                                         </div>
                                       </div>
-
                                     </div>
-
                                     <div class="price">
                                       10.000<sup>đ</sup><span>/Lượt</span>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="action text-center">
                                       <a href="#"
                                          class="btn btn-register">
@@ -9403,7 +8993,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9449,7 +9039,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9463,7 +9053,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9511,7 +9101,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9557,7 +9147,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9608,7 +9198,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9657,7 +9247,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9704,7 +9294,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9752,7 +9342,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9803,7 +9393,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9849,7 +9439,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9863,7 +9453,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9909,7 +9499,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9958,7 +9548,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9972,7 +9562,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10016,11 +9606,7 @@
 
 
                     </div>
-
-
                     <div role="tabpanel" class="tab-pane " id="block_package_vas" data-type="4">
-
-
                       <div class="package_other">
                         <div class="container">
                           <div class="title text-center">
@@ -10050,7 +9636,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10102,7 +9688,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10153,7 +9739,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10210,7 +9796,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10261,7 +9847,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10316,7 +9902,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10371,7 +9957,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10384,7 +9970,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10397,7 +9983,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10410,7 +9996,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10424,7 +10010,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10470,7 +10056,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10488,7 +10074,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10537,7 +10123,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10550,7 +10136,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10605,7 +10191,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10657,7 +10243,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10712,7 +10298,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10765,7 +10351,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10818,7 +10404,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10873,7 +10459,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10930,7 +10516,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10983,7 +10569,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10996,7 +10582,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11047,7 +10633,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11060,7 +10646,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11073,7 +10659,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11086,7 +10672,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11100,7 +10686,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11148,7 +10734,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11201,7 +10787,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11256,7 +10842,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11305,7 +10891,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11356,7 +10942,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11403,7 +10989,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/package_roaming/check.png"
+                                <img src="../assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -11450,12 +11036,7 @@
                           </div>
                         </div>
                       </div>
-
-
                     </div>
-
-
-                    &lt;!&ndash;                            &ndash;&gt;
                     <div role="tabpanel" class="tab-pane " id="block_package_flexible"
                          data-type="11">
                       <div class="package_freedoo">
@@ -11463,7 +11044,6 @@
                           <div class="content">
                             <div class="block_package">
                               <div class="row">
-
                                 <div class="col-sm-4">
                                   <div class="item_package">
                                     <div class="title">
@@ -11471,9 +11051,7 @@
                                         <h4>ĐĂNG KÝ THEO NGÀY</h4>
                                       </a>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="package_description">
                                       <div class="short_des">
                                         <div class="row">
@@ -11492,13 +11070,10 @@
                                         </div>
                                       </div>
                                     </div>
-
                                     <div class="price" style="padding: 0;">
                                       Linh hoạt
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="action text-center">
                                       <a href="#"
                                          class="btn btn-register">
@@ -11506,7 +11081,6 @@
                                     </div>
                                   </div>
                                 </div>
-
                                 <div class="col-sm-4">
                                   <div class="item_package">
                                     <div class="title">
@@ -11514,9 +11088,7 @@
                                         <h4>ĐĂNG KÝ THEO THÁNG</h4>
                                       </a>
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="package_description">
                                       <div class="short_des">
                                         <div class="row">
@@ -11535,13 +11107,10 @@
                                         </div>
                                       </div>
                                     </div>
-
                                     <div class="price" style="padding: 0">
                                       Linh hoạt
                                     </div>
-
                                     <div class="item_package_separator"></div>
-
                                     <div class="action text-center">
                                       <a href="#"
                                          class="btn btn-register">
@@ -11550,276 +11119,20 @@
 
                                   </div>
                                 </div>
-
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-
+                    </div>-->
                   </div>
-                </div>-->
+                </div>
               </div>
             </div>
           </section>
         </section>
       </div>
     </div>
-    <div id="section_social">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-12">
-            <div class="txt">
-              <a href="#">
-                Chính sách
-              </a>
-              <a href="#">
-                Các câu hỏi thường gặp
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-12">
-            <div class="fr">
-              <div class="fl txt">Theo dõi chúng tôi trên</div>
-              <div class="fl">
-                <a href="#">
-                <span class="social">
-                    <img src="../assets/images/package_roaming/icon_gg.png"
-                         alt="">
-                </span>
-                </a>
-                <a href="#">
-                <span class="social">
-                    <img src="../assets/images/package_roaming/icon_fb.png" alt="">
-                </span>
-                </a>
-                <a href="#">
-                <span class="social">
-                  <img src="../assets/images/package_roaming/icon_tw.png" alt="">
-                </span>
-                </a>
-                <a href="#">
-                <span class="social">
-                    <img src="../assets/images/package_roaming/icon_in.png" alt="">
-                </span>
-                </a>
-                <a href="#">
-                <span class="social">
-                  <img src="../assets/images/package_roaming/icon_map.png" alt="">
-                </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <!-- End id main-content -->
-    <div id="footer">
-      <div class="column">
-        <div class="space_10"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-3 no_pad_xs">
-              <div class="border_right">
-                <div class="uppercase lbl_color_blue title">Freedoo</div>
-                <ul>
-                  <li class="item">
-                    <a href="#">
-                      Giới thiệu về FREEDOO
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Liên hệ với FREEDOO
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Các kênh hỗ trợ
-                    </a>
-                  </li>
-                </ul>
-                <div class="uppercase lbl_color_black title">Được chứng nhận</div>
-                <div>
-                  <a href="#"
-                     target="_blank">
-                    <img src="../assets/images/package_roaming/certify1.png">
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 no_pad_xs">
-              <div class="border_right">
-                <div class="uppercase lbl_color_blue title">Hỗ trợ</div>
-                <ul>
-                  <li class="item">
-                    <a href="#">
-                      Điều khoản và điều kiện giao dịch </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Quy định về hình thức thanh toán </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Chính sách giao nhận </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Chính sách bảo mật thông tin cá nhân </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Chính sách bảo mật thanh toán </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Chính sách đổi trả hàng và hoàn tiền </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Tra cứu đơn hàng
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-2 no_pad_xs">
-              <div class="border_right">
-                <div class="uppercase lbl_color_blue title">Sản phẩm</div>
-                <ul>
-                  <li class="item">
-                    <a href="#">
-                      Sim số
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Gói cước
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Nạp thẻ
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Mua mã thẻ
-                    </a>
-                  </li>
-                </ul>
-                <div class="uppercase lbl_color_blue title">Cộng đồng</div>
-                <ul>
-                  <li class="item">
-                    <a href="#">
-                      Diễn đàn
-                    </a>
-                  </li>
-
-                  <li class="item">
-                    <a href="#">
-                      Đổi quà
-                    </a>
-                  </li>
-                </ul>
-                <div class="uppercase lbl_color_blue title">Cộng tác viên</div>
-                <ul>
-                  <li class="item">
-                    <a href="#">
-                      Chiến dịch
-                    </a>
-                  </li>
-                  <li class="item">
-                    <a href="#">
-                      Chính sách thù lao
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-4 no_pad_xs">
-              <div class="uppercase lbl_color_blue title">Tải miễn phí app giao vận</div>
-              <div>
-                <div class="col-md-5 col-sm-3 col-5 no_pad">
-                  <img src="../assets/images/package_roaming/app_store.png">
-                  <div class="space_20"></div>
-                  <img src="../assets/images/package_roaming/gg_play.png">
-                </div>
-                <div class="col-md-7 col-sm-9 col-7 qr_code no_pad">
-                  <img src="../assets/images/package_roaming/static_qr_code.jpg">
-                </div>
-              </div>
-              <div class="space_30"></div>
-              <div>
-                <div class="fb-page fb_iframe_widget" data-href="#"
-                     data-small-header="true" data-adapt-container-width="true" data-hide-cover="true"
-                     data-show-facepile="true" fb-xfbml-state="rendered"
-                     fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=350&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffreedoo.vnpt.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true">
-                                <span style="vertical-align: bottom; width: 340px; height: 136px;"><iframe
-                                  name="fd4df58edf179e" allowtransparency="true" allowfullscreen="true"
-                                  scrolling="no" allow="encrypted-media" title="fb:page Facebook Social Plugin"
-                                  style="border: medium none; visibility: visible; width: 340px; height: 136px;"
-                                  src="https://www.facebook.com/v2.10/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FmAiQUwlReIP.js%3Fversion%3D42%23cb%3Df1e8771b64e2056%26domain%3Dfreedoo.vnpt.vn%26origin%3Dhttps%253A%252F%252Ffreedoo.vnpt.vn%252Ff48d50554ba3e4%26relation%3Dparent.parent&amp;container_width=350&amp;hide_cover=true&amp;href=https%3A%2F%2Fwww.facebook.com%2Ffreedoo.vnpt.vn%2F&amp;locale=vi_VN&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true"
-                                  class="" width="1000px" height="1000px" frameborder="0"></iframe></span></div>
-              </div>
-            </div>
-            <div class="space_30"></div>
-            <!--<div class="newsletter">
-              <div id="newsletter_tit">
-                Đăng ký nhận<br>
-                bản tin Freedoo
-              </div>
-              <div id="newsletter_des">
-                Cập nhật thông tin khuyến mãi nhanh nhất<br>
-                Hưởng quyền lợi giảm giá riêng biệt
-              </div>
-
-              <form id="frmNewsLetter">
-                <input name="newsleterInput" id="newsleterInput" placeholder="Email của bạn"
-                       class="form-control" maxlength="255" type="text">
-                <input id="btn_newsleter" class="form-control adr button" value="Gửi" type="submit">
-              </form>
-              <div class="space_1"></div>
-            </div>-->
-            <div class="space_30"></div>
-            <div class="company">
-              <div class="name uppercase">Tổng công ty dịch vụ viễn thông</div>
-              <div class="space_10"></div>
-              <div class="uppercase font_15">Trụ sở chính</div>
-              <div class="space_10"></div>
-              <div class="address">
-                Tòa nhà VNPT, Số 57 phố Huỳnh Thúc Kháng, Phường Láng Hạ, Quận Đống Đa, Thành phố Hà Nội,
-                Việt
-                Nam<br>
-                Điện thoại: <a href="#">1800 1166</span></a>. Email:
-                <a href="#">freedoo@vnpt.vn</a>
-              </div>
-              <div class="space_10"></div>
-              <div class="address">
-                Mã số doanh nghiệp: 0106869738 do Sở Kế hoạch và Đầu tư TP. Hà Nội cấp lần đầu ngày
-                11/06/2015. Đăng
-                ký thay đổi lần thứ 01 do Sở Kế hoạch và Đầu tư TP. Hà Nội ngày 14/01/2016.
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="space_30"></div>
-      </div>
-      <div class="copy_right">
-        <div class="space_5"></div>
-        <div class="container">
-          <div class="uppercase copy_right_tit text-center">
-            freedoo.vnpt.vn - website bán hàng online chính thức của vnpt vinaphone
-          </div>
-          <div class="copy_right_txt text-center">
-            Copyright VNPT VINAPHONE 2018. All rights reserved.
-          </div>
-        </div>
-        <div class="space_5"></div>
-      </div>
-    </div>
   </div>
 </div>
