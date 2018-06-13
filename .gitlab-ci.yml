@@ -16,6 +16,6 @@ pages:
   - yarn build
   artifacts:
     paths:
-    - public/static
+    - public
   only:
   - master
