@@ -12,6 +12,8 @@ const store = new Vuex.Store({
     hidenav(state) {
       state.isShowNav = false
     }
+  },
+  actions: {
   }
 })
 
