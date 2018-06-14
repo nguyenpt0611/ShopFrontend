@@ -1,21 +1,23 @@
 <template>
   <div id="app">
-    <Navbar v-show="$route.path !== '/login' ? true : false"></Navbar>
+    <Navbar v-show="isShowNav"></Navbar>
     <router-view/>
-    <Footer v-show="$route.path !== '/login' ? true : false"></Footer>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 export default {
   name: 'App',
   data() {
     return {
+      isShowNav: this.$store.state.isShowNav
     }
   },
-  components: {Navbar, Footer},
+  components: {
+    Navbar: () => import('@/components/Navbar'),
+    Footer: () => import('@/components/Footer')
+  }
 }
 </script>
 
