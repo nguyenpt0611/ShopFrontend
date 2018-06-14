@@ -212,23 +212,23 @@
                           </div>
                           <div class="content">
                             <div class="block_package">
-                              <div v-if="data.freedoo_packages && data.freedoo_packages.length" class="row">
-                                <div class="col-sm-4" v-for="item of data.freedoo_packages" v-bind:key="item.id">
+                              <div v-if="package_data.freedoo_packages && package_data.freedoo_packages.length" class="row">
+                                <div class="col-sm-4" v-for="item of package_data.freedoo_packages" v-bind:key="item.id">
                                   <div class="item_package">
                                     <div class="title">
-                                      <a href="#">
+                                      <router-link :to="{name: 'PackageDetail', params:{name:item.name}}">
                                         <h4>{{item.name}}</h4>
                                         <p>{{item.type}}</p>
-                                      </a>
+                                      </router-link>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="package_description">
                                       <div class="call_des">
                                         <div class="row">
                                           <div class="col-3">
-                <span class="package_icon">
-                    <img src="../assets/images/package_icon_phonewave.png">
-                </span>
+                                            <span class="package_icon">
+                                                <img src="../assets/images/package_icon_phonewave.png">
+                                            </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
@@ -276,19 +276,19 @@
                           </div>
                           <div class="content">
                             <div class="block_package block_package_other">
-                              <div v-if="data.other_packages && data.other_packages.length" class="row">
-                                <div class="col-sm-4" v-for="item of data.other_packages" v-bind:key="item.id">
+                              <div v-if="package_data.other_packages && package_data.other_packages.length" class="row">
+                                <div class="col-sm-4" v-for="item of package_data.other_packages" v-bind:key="item.id">
                                   <div class="item_package">
                                     <div class="title">
-                                      <a href="#">
+                                      <router-link :to="{name: 'PackageDetail', params:{name:item.name}}">
                                         <h4>{{item.name}}</h4>
                                         <p>{{item.type}}</p>
-                                      </a>
+                                      </router-link>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="package_description">
                                       <div class="short_des">
-                                        <div v-for="des of item.content" v-bind:key="item.id" class="row">
+                                        <div v-for="des of item.content" v-bind:key="des" class="row">
                                           <div class="col-3">
                                             <span class="package_icon">
                                                 <img src="../assets/images/check.png"

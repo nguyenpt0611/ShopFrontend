@@ -7,8 +7,21 @@ export default {
             id: 1,
             name: 'FHAPPY',
             type: 'Gói trả trước',
+            src: 'fhappy-banner.png',
             call_content: '1.000 phút gọi nội mạng VinaPhone',
             data_content: '60 GB Data tốc độ cao',
+            description: `<p>Quy định về sử dụng gói cước:<br>
+                            ·&nbsp; &nbsp; Đăng ký gói cước:<br>
+                            &nbsp; &nbsp; &nbsp;Qua Web<br>
+                            ·&nbsp; &nbsp; Hủy gói cước:<br>
+                            &nbsp; &nbsp; &nbsp;Qua Web<br>
+                            &nbsp; &nbsp; &nbsp;Qua SMS (cú pháp HUY_&lt;tên gói&gt; gửi 900)<br>
+                            -&nbsp; &nbsp; Tra cứu: Qua SMS:<br>
+                            Lưu lượng thoại/sms: TRACUU_TENGOI gửi 900<br>
+                            Tra cứu data: DATA gửi 888Thuê bao phải còn Tài khoản chính tối thiểu theo quy định đủ để gọi, nhắn tin, truy cập GPRS và còn thời hạn sử dụng.<br>
+                            Thời hạn sử dụng:<br>
+                            30 ngày kể từ thời điểm kích hoạt thành công.<br>
+                            Giá cước: 79.000đ/30 ngày (Giá cước đã bao gồm VAT)</p>`,
             price: '49.0000',
             period: 'tháng'
           },
