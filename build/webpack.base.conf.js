@@ -22,7 +22,13 @@ const createLintingRule = () => ({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    // If you want to support IE < 11, should add `babel-polyfill` to vendor.
+    // e.g. ['babel-polyfill', 'vue', 'vue-router', 'vuex']
+    vendor: [
+      'vue',
+      'vue-router',
+    ]
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,10 +38,12 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.css', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      assets: path.resolve(__dirname, '../src/assets'),
+      templates: path.resolve(__dirname, '../src/components/templates')
     }
   },
   module: {

@@ -1,6 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+const Package = () => import('@/components/layout/Package')
+const PackageRoaming = () => import('@/components/layout/PackageRoaming')
+const LoginUser = () => import('@/components/layout/LoginUser')
+const PackageRegister = () => import('@/components/layout/PackageRegister')
+const PackageDetail = () => import('@/components/layout/PackageDetail')
+
 Vue.use(Router)
 
 export default new Router({
@@ -14,22 +20,27 @@ export default new Router({
     {
       path: '/package',
       name: 'Package',
-      component: require('@/components/LoginUser')
+      component: Package
+    },
+    {
+      path: '/package/roaming',
+      name: 'PackageRoaming',
+      component: PackageRoaming
     },
     {
       path: '/login',
       name: 'LoginUser',
-      component: require('@/components/LoginUser')
+      component: LoginUser
     },
     {
       path: '/package/register/:name?',
       name: 'PackageRegister',
-      component: require('@/components/PackageRegister'),
+      component: PackageRegister
     },
     {
       path: '/package/detail/:name?',
       name: 'PackageDetail',
-      component: require('@/components/PackageDetail'),
+      component: PackageDetail
     }
   ],
   scrollBehavior (to, from, savedPosition) {

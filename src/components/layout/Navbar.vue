@@ -1,4 +1,4 @@
-<template src="../views/Navbar.vue">
+<template src="../templates/Navbar.vue">
 </template>
 
 <script>

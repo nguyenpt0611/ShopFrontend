@@ -1,4 +1,4 @@
-<template src="../views/LoginUser.vue"></template>
+<template src="../templates/LoginUser.vue"></template>
 <script>
 export default {
   name: 'LoginUser',
@@ -9,5 +9,5 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import "../assets/scss/globals/form_style.scss";
+  @import "~assets/scss/globals/form_style.scss";
 </style>

@@ -9,18 +9,17 @@
                 <div class="row">
                   <div class="col-md-4 no_pad_left">
                     <div class="card">
-                      <img :src="require('../assets/images/' + package.src)" alt="image">
+                      <img :src="'https://mobifreedo.herokuapp.com'+(package.img)" alt="image">
                     </div>
                   </div>
                   <div class="col-md-8">
-                    <div class="title">{{package.name}}</div>
-                    <div class="txt_lg lbl_color_blue">{{package.price}}</div>
-                    <div class="short_des">
-                      <p>- {{package.call_content}}</p>
-                      <p>- {{package.data_content}}</p>
+                    <div class="title">{{package.title}}</div>
+                    <div class="txt_lg lbl_color_blue">{{package.price_amount}}</div>
+                    <div class="short_des" v-if="package.highlights">
+                      <p v-for="hightlight of package.highlights.split('\n')" :key="hightlight">- {{hightlight}}</p>
                     </div>
                     <div class="row_btn">
-                      <router-link :to="{name: 'PackageRegister', params:{name:package.name}}"
+                      <router-link :to="{name: 'PackageRegister', params:{name:package.title}}"
                                    class="btn btn_green">Đăng ký ngay</router-link>
                     </div>
                   </div>
@@ -32,7 +31,7 @@
             <div class="full_description">
               <div class="title">Thông tin chi tiết</div>
               <div class="description">
-                <p v-html="package.description"></p>
+                <p v-html="package.content"></p>
               </div>
             </div>
           </div>
@@ -48,52 +47,51 @@
                 <div class="content">
                   <div class="block_package block_package_other">
                     <div v-if="related_package && related_package.length" class="row">
-                      <div class="col-sm-4" v-for="item of related_package" v-bind:key="item.id">
+                      <div class="col-sm-4" v-for="item of related_package" v-bind:key="item">
                         <div class="item_package">
                           <div class="title">
-                            <router-link :to="{name: 'PackageDetail', params:{name:item.name}}">
-                              <h4>{{item.name}}</h4>
-                              <p>{{item.type}}</p>
+                            <router-link :to="{name: 'PackageDetail', params:{name:item.title}}">
+                              <h4>{{item.title}}</h4>
+                              <p>{{item.subtitle}}</p>
                             </router-link>
                           </div>
                           <div class="item_package_separator"></div>
                           <div class="package_description">
                             <div class="call_des">
                               <div class="row">
-                                <div class="col-3">
+                                <div v-if="item.highlights.split('\n')[0]" class="col-3">
                                             <span class="package_icon">
-                                                <img src="../assets/images/package_icon_phonewave.png">
+                                                <img src="~assets/images/package_icon_phonewave.png">
                                             </span>
                                 </div>
                                 <div class="col-9">
                                   <div class="content">
-                                    <p>{{item.call_content}}</p>
+                                    <p>{{item.highlights.split('\n')[0]}}</p>
                                   </div>
                                 </div>
                               </div>
                             </div>
-
-                            <div class="data_des">
+                            <div v-if="item.highlights.split('\n')[1]" class="data_des">
                               <div class="row">
                                 <div class="col-3">
-                <span class="package_icon">
-                    <img src="../assets/images/package_icon_phone.png">
-                </span>
+                                            <span class="package_icon">
+                                                <img src="~assets/images/package_icon_phone.png">
+                                            </span>
                                 </div>
                                 <div class="col-9">
                                   <div class="content">
-                                    <p>{{item.data_content}}</p>
+                                    <p>{{item.highlights.split('\n')[1]}}</p>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="price">
-                            {{item.price}}<sup>đ</sup><span>/{{item.period}}</span>
+                            {{item.price_amount}}<sup>đ</sup><span>/{{item.interval}}</span>
                           </div>
                           <div class="item_package_separator"></div>
                           <div class="action text-center">
-                            <router-link :to="{name: 'PackageRegister', params:{name:item.name}}"
+                            <router-link :to="{name: 'PackageRegister', params:{name:item.title}}"
                                          class="btn btn-register">
                               Đăng ký </router-link>
                           </div>

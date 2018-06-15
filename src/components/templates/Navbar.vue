@@ -5,17 +5,17 @@
         <div class="col-md-6">
           <div class="icon_heade_vina">
             <a href="#">
-              <img src="../assets/images/logo_freedoo.png">
+              <img src="~assets/images/logo_freedoo.png">
             </a>
           </div>
         </div>
         <div class="col-md-6">
           <div class="row mr-2">
             <div class="col-md-5 align-self-center">
-              <img src="../assets/images/hotline.png">
+              <img src="~assets/images/hotline.png">
             </div>
             <div class="col-md-7">
-              <img src="../assets/images/vnpt.png">
+              <img src="~assets/images/vnpt.png">
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
             <li>
               <a class="parent" href="#">
                 Sản phẩm
-                <span class="glyphicon glyphicon-chevron-down"></span>
+                <i class="fas fa-chevron-down"></i>
               </a>
               <div class="sub_menu">
                 <div class="container">
@@ -39,7 +39,7 @@
                     <div class="col-2" style="padding-left: 30px; padding-right: 0">
                       <a href="#">
                         <div class="icon_menu">
-                          <img src="../assets/images/icon_sim.png">
+                          <img src="~assets/images/icon_sim.png">
                         </div>
                         <div>
                           <div class="txt_strong">Sim số</div>
@@ -49,7 +49,7 @@
                     <div class="col-2">
                       <router-link :to="{name: 'Package'}">
                         <div class="icon_menu">
-                          <img src="../assets/images/icon_package.png">
+                          <img src="~assets/images/icon_package.png">
                         </div>
                         <div>
                           <div class="txt_strong">Gói cước</div>
@@ -61,7 +61,7 @@
                     <div class="col-2">
                       <a href="#">
                         <div class="icon_menu">
-                          <img src="../assets/images/icon_topup.png">
+                          <img src="~assets/images/icon_topup.png">
                         </div>
                         <div>
                           <!--                                                <div class="title">Dịch vụ</div>-->
@@ -74,7 +74,7 @@
                     <div class="col-3">
                       <a href="#">
                         <div class="icon_menu">
-                          <img src="../assets/images/icon_roaming.png">
+                          <img src="~assets/images/icon_roaming.png">
                         </div>
                         <div>
                           <div class="txt_strong">Gói cước Roaming</div>
@@ -86,7 +86,7 @@
                     <div class="col-3">
                       <a href="#">
                         <div class="icon_menu">
-                          <img src="../assets/images/icon_sim.png">
+                          <img src="~assets/images/icon_sim.png">
                         </div>
                         <div>
                           <div class="txt_strong">Chuyển đổi TB trả sau</div>
@@ -150,7 +150,7 @@
             <!--                    </div>-->
             <div class="info icon-user menu_user">
               <a href="#">
-                <img src="../assets/images/icon_user.png"></a>
+                <img src="~assets/images/icon_user.png"></a>
             </div>
           </div>
         </div>

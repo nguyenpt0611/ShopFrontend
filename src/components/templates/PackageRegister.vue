@@ -9,7 +9,7 @@
                 <a href="">
                   <div class="item">
                     <div class="icon_ss border_right">
-                      <img src="../assets/images/icon_sv_sim.png" class="icon_menu">
+                      <img src="~assets/images/icon_sv_sim.png" class="icon_menu">
                       <span class="title uppercase">Sim số</span>
                     </div>
                   </div>
@@ -19,7 +19,7 @@
                 <a href="">
                   <div class="item">
                     <div class="border_right">
-                      <img src="../assets/images/icon_sv_package.png" class="icon_menu">
+                      <img src="~assets/images/icon_sv_package.png" class="icon_menu">
                       <span class="title uppercase">Gói cước</span>
                     </div>
                   </div>
@@ -30,7 +30,7 @@
                 <a href="">
                   <div class="item">
                     <div class="icon_topup border_right">
-                      <img src="../assets/images/icon_sv_topup.png" class="icon_menu">
+                      <img src="~assets/images/icon_sv_topup.png" class="icon_menu">
                       <span class="title uppercase">Nạp thẻ</span>
                     </div>
                   </div>
@@ -42,7 +42,7 @@
                 <a href="">
                   <div class="item">
                     <div class="icon_card  border_right">
-                      <img src="../assets/images/icon_sv_roaming.png" class="icon_menu">
+                      <img src="~assets/images/icon_sv_roaming.png" class="icon_menu">
                       <span class="title uppercase">Gói cước roaming</span>
                     </div>
                   </div>
@@ -53,7 +53,7 @@
                 <a href="">
                   <div class="item">
                     <div class="icon_card">
-                      <img src="../assets/images/icon_sv_card.png" class="icon_menu">
+                      <img src="~assets/images/icon_sv_card.png" class="icon_menu">
                       <span class="title uppercase">CĐ TB Trả sau</span>
                     </div>
                   </div>
@@ -91,13 +91,13 @@
                         </td>
                       </tr>
                       <tr class="border_bottom">
-                        <td class="fl">git
+                        <td class="fl">
                           <span class="txt_label">
                               Tên gói cước:
                           </span>
                         </td>
                         <td class="fr txt_value">
-                          <span id="order_product">{{package.name}}</span>
+                          <span id="order_product">{{package.title}}</span>
                         </td>
                       </tr>
                       <tr class="border_bottom">
@@ -107,8 +107,7 @@
                           </span>
                         </td>
                         <td class="fr txt_value">
-                          <input value="0" name="total_amount" id="total_amount" type="hidden">
-                          <span id="order_amount">{{package.price}}</span>đ
+                          <span id="order_amount">{{package.price_amount}}</span>đ
                         </td>
                       </tr>
                       <tr>
@@ -118,7 +117,7 @@
                           </span>
                         </td>
                         <td class="fr txt_value col_amount">
-                          <span id="order_total_amount">{{package.price}}</span>đ
+                          <span id="order_total_amount">{{package.price_amount}}</span>đ
                         </td>
                       </tr>
                       <!-- end row -->
@@ -126,12 +125,13 @@
                     </table>
                   </div>
                 </div>
-                <!-- end #panel_order -->                    </div>
+                <!-- end #panel_order -->
+              </div>
             </div>
             <div class="col-md-8 order-1 no_pad">
               <div id="main_left_section">
                 <div class="form_title">
-                  Đăng ký gói cước: <span>{{package.name}}</span>
+                  Đăng ký gói cước: <span>{{package.title}}</span>
                 </div>
                 <form class="form" id="register_package" action="" method="post">
                   <div class="form-group">

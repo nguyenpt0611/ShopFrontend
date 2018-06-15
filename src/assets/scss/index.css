@@ -2647,7 +2647,7 @@ ul.form-group-radio li {
 .list_roaming .info .btn_view {
   background-color: #FFF;
   color: #302e2e;
-  padding: 6px;
+  padding: 4px;
   border: 2px solid #302e2e;
   border-radius: 18px;
   width: 110px;
@@ -2657,7 +2657,7 @@ ul.form-group-radio li {
 .list_roaming .info .btn_register {
   background-color: #FFF;
   color: #ed0677;
-  padding: 6px;
+  padding: 4px;
   border: 2px solid #ed0677;
   border-radius: 18px;
   width: 110px;
@@ -3111,7 +3111,10 @@ ul.form-group-radio li {
   .list_package .item .row_price .price .txt_lg {
     font-size: 20px; }
 
-  .list_package .item .row_price .btn_view a, .list_package .item .row_price .btn_view a:hover, .list_package .item .row_price .btn_view a:active, .list_package .item .row_price .btn_view a:visited {
+  .list_package .item .row_price .btn_view a,
+  .list_package .item .row_price .btn_view a:hover,
+  .list_package .item .row_price .btn_view a:active,
+  .list_package .item .row_price .btn_view a:visited {
     font-size: 14px;
     padding: 5px 10px; }
 

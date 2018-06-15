@@ -20,28 +20,28 @@
               <div class="fl">
                 <a href="#">
                 <span class="social">
-                    <img src="../assets/images/icon_gg.png"
+                    <img src="~assets/images/icon_gg.png"
                          alt="">
                 </span>
                 </a>
                 <a href="#">
                 <span class="social">
-                    <img src="../assets/images/icon_fb.png" alt="">
+                    <img src="~assets/images/icon_fb.png" alt="">
                 </span>
                 </a>
                 <a href="#">
                 <span class="social">
-                  <img src="../assets/images/icon_tw.png" alt="">
+                  <img src="~assets/images/icon_tw.png" alt="">
                 </span>
                 </a>
                 <a href="#">
                 <span class="social">
-                    <img src="../assets/images/icon_in.png" alt="">
+                    <img src="~assets/images/icon_in.png" alt="">
                 </span>
                 </a>
                 <a href="#">
                 <span class="social">
-                  <img src="../assets/images/icon_map.png" alt="">
+                  <img src="~assets/images/icon_map.png" alt="">
                 </span>
                 </a>
               </div>
@@ -81,7 +81,7 @@
                 <div>
                   <a href="#"
                      target="_blank">
-                    <img src="../assets/images/certify1.png">
+                    <img src="~assets/images/certify1.png">
                   </a>
                 </div>
               </div>
@@ -180,12 +180,12 @@
               <div class="uppercase lbl_color_blue title">Tải miễn phí app giao vận</div>
               <div>
                 <div class="col-md-5 col-sm-3 col-5 no_pad">
-                  <img src="../assets/images/app_store.png">
+                  <img src="~assets/images/app_store.png">
                   <div class="space_20"></div>
-                  <img src="../assets/images/gg_play.png">
+                  <img src="~assets/images/gg_play.png">
                 </div>
                 <div class="col-md-7 col-sm-9 col-7 qr_code no_pad">
-                  <img src="../assets/images/static_qr_code.jpg">
+                  <img src="~assets/images/static_qr_code.jpg">
                 </div>
               </div>
               <div class="space_30"></div>

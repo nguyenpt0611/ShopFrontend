@@ -6,7 +6,7 @@
           <div class="login-title text-center">
             <h1 class="title">
               <a href="https://freedoo.vnpt.vn/">
-              <img src="../assets/images/logo_sso.png"></a>
+              <img src="~@/assets/images/logo_sso.png"></a>
             </h1>
           </div>
           <div class="login-title text-center">

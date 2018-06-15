@@ -5,7 +5,7 @@
         <div id="block_package_banner">
           <div class="package_banner_slider">
             <div class="item">
-              <img src="../assets/images/package_banner_3-min.jpg" alt="image">
+              <img src="~assets/images/package_banner_3-min.jpg" alt="image">
             </div>
           </div>
         </div>
@@ -20,40 +20,40 @@
                         <li role="presentation" class="active">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="13">
-                            <img src="../assets/images/package_hot.png">
+                            <img src="~assets/images/package_hot.png">
                             HOT nhất </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_prepaid" role="tab"
                              data-toggle="tab" data-type="1">
-                            <img src="../assets/images/package_prepaid.png">
+                            <img src="~assets/images/package_prepaid.png">
                             Gói trả trước </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_postpaid" role="tab"
                              data-toggle="tab" data-type="2">
-                            <img src="../assets/images/package_postpaid.png">
+                            <img src="~assets/images/package_postpaid.png">
                             Gói trả sau </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="3">
-                            <img src="../assets/images/package_data.png">
+                            <img src="~assets/images/package_data.png">
                             Gói data </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              role="tab" data-toggle="tab" data-type="4">
-                            <img src="../assets/images/package_vas.png">
+                            <img src="~assets/images/package_vas.png">
                             DV GTGT </a>
                         </li>
                         <li role="presentation" class="">
                           <a href="#"
                              aria-controls="block_package_flexible" role="tab"
                              data-toggle="tab" data-type="11">
-                            <img src="../assets/images/package_flexible.png">
+                            <img src="~assets/images/package_flexible.png">
                             Gói linh hoạt </a>
                         </li>
                       </ul>
@@ -76,7 +76,7 @@
                                            name="SearchPackageForm[msisdn]" maxlength="20"
                                            placeholder="Nhập SĐT để tìm gói cước ưu đãi dành riêng cho bạn">
                                     <button type="button" class="btn btn-search" id="btn_search_msisdn">
-                                      <img src="../assets/images/package_search_icon.png">
+                                      <img src="~assets/images/package_search_icon.png">
                                     </button>
                                   </div>
                                 </div>
@@ -103,8 +103,7 @@
                                                type="hidden">
                                         <div class="form-group">
                                           <div id="captcha_place_holder"
-                                               class="g-recaptcha"
-                                               data-sitekey="6LdnWS4UAAAAAAyy0Odc6bAuWs8wEm6BD9A6h66t">
+                                               class="g-recaptcha">
                                             <div style="width: 304px; height: 78px;">
                                               <textarea id="g-recaptcha-response"
                                                         name="g-recaptcha-response"
@@ -136,8 +135,6 @@
                         <div class="col-sm-6 package_search_filter_separator">
                           <div class="package_search_filter">
                             <form class="form" id="searchpackage-form">
-                              <input value="7cd73fd38b2653b2d0cb022c5f3c6d6911d2069f"
-                                     name="YII_CSRF_TOKEN" type="hidden">
                               <div class="row">
                                 <div class="col-sm-12">
                                   <div class="title">
@@ -166,7 +163,7 @@
                                       </select></div>
 
                                     <div id="loadingPackageImg"
-                                         class="spinner hidden"></div>
+                                         class="spinner d-none"></div>
                                   </div>
 
 
@@ -184,7 +181,7 @@
 
                                     <button type="button" class="btn btn-search"
                                             onclick="filteringPackages()">
-                                      <img src="../assets/images/package_search_icon.png">
+                                      <img src="~assets/images/package_search_icon.png">
                                     </button>
 
                                   </div>
@@ -213,52 +210,51 @@
                           <div class="content">
                             <div class="block_package">
                               <div v-if="package_data.freedoo_packages && package_data.freedoo_packages.length" class="row">
-                                <div class="col-sm-4" v-for="item of package_data.freedoo_packages" v-bind:key="item.id">
+                                <div class="col-sm-4" v-for="item of package_data.freedoo_packages" v-bind:key="item">
                                   <div class="item_package">
                                     <div class="title">
-                                      <router-link :to="{name: 'PackageDetail', params:{name:item.name}}">
-                                        <h4>{{item.name}}</h4>
-                                        <p>{{item.type}}</p>
+                                      <router-link :to="{name: 'PackageDetail', params:{name:item.title}}">
+                                        <h4>{{item.title}}</h4>
+                                        <p>{{item.subtitle}}</p>
                                       </router-link>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="package_description">
                                       <div class="call_des">
                                         <div class="row">
-                                          <div class="col-3">
+                                          <div v-if="item.highlights.split('\n')[0]" class="col-3">
                                             <span class="package_icon">
-                                                <img src="../assets/images/package_icon_phonewave.png">
+                                                <img src="~assets/images/package_icon_phonewave.png">
                                             </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
-                                              <p>{{item.call_content}}</p>
+                                              <p>{{item.highlights.split('\n')[0]}}</p>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-
-                                      <div class="data_des">
+                                      <div v-if="item.highlights.split('\n')[1]" class="data_des">
                                         <div class="row">
                                           <div class="col-3">
-                <span class="package_icon">
-                    <img src="../assets/images/package_icon_phone.png">
-                </span>
+                                            <span class="package_icon">
+                                                <img src="~assets/images/package_icon_phone.png">
+                                            </span>
                                           </div>
                                           <div class="col-9">
                                             <div class="content">
-                                              <p>{{item.data_content}}</p>
+                                              <p>{{item.highlights.split('\n')[1]}}</p>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
                                     <div class="price">
-                                      {{item.price}}<sup>đ</sup><span>/{{item.period}}</span>
+                                      {{item.price_amount}}<sup>đ</sup><span>/{{getPeriod(item.interval)}}</span>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="action text-center">
-                                      <router-link :to="{name: 'PackageRegister', params:{name:item.name}}"
+                                      <router-link :to="{name: 'PackageRegister', params:{name:item.title}}"
                                          class="btn btn-register">
                                         Đăng ký </router-link>
                                     </div>
@@ -277,21 +273,21 @@
                           <div class="content">
                             <div class="block_package block_package_other">
                               <div v-if="package_data.other_packages && package_data.other_packages.length" class="row">
-                                <div class="col-sm-4" v-for="item of package_data.other_packages" v-bind:key="item.id">
+                                <div class="col-sm-4" v-for="item of package_data.other_packages" v-bind:key="item">
                                   <div class="item_package">
                                     <div class="title">
-                                      <router-link :to="{name: 'PackageDetail', params:{name:item.name}}">
-                                        <h4>{{item.name}}</h4>
-                                        <p>{{item.type}}</p>
+                                      <router-link :to="{name: 'PackageDetail', params:{name:item.title}}">
+                                        <h4>{{item.title}}</h4>
+                                        <p>{{item.subtitle}}</p>
                                       </router-link>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="package_description">
                                       <div class="short_des">
-                                        <div v-for="des of item.content" v-bind:key="des" class="row">
+                                        <div v-for="des of item.highlights.split('\n')" v-bind:key="des" class="row">
                                           <div class="col-3">
                                             <span class="package_icon">
-                                                <img src="../assets/images/check.png"
+                                                <img src="~assets/images/check.png"
                                                      style="width:19px; margin-left:1px">
                                             </span>
                                           </div>
@@ -302,11 +298,11 @@
                                       </div>
                                     </div>
                                     <div class="price">
-                                      {{item.price}}<sup>đ</sup><span>/{{item.period}}</span>
+                                      {{item.price_amount}}<sup>đ</sup><span>/{{getPeriod(item.interval)}}</span>
                                     </div>
                                     <div class="item_package_separator"></div>
                                     <div class="action text-center">
-                                      <router-link :to="{name: 'PackageRegister', params:{name:item.name}}"
+                                      <router-link :to="{name: 'PackageRegister', params:{name:item.title}}"
                                                    class="btn btn-register">
                                         Đăng ký </router-link>
                                     </div>
@@ -349,7 +345,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -366,7 +362,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phonewave.png">
+                            <img src="~assets/images/package_icon_phonewave.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -414,7 +410,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -432,7 +428,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phonewave.png">
+                            <img src="~assets/images/package_icon_phonewave.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -495,7 +491,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -511,7 +507,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -526,7 +522,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_icon_phonewave.png">
+                                    <img src="~assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -572,7 +568,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -588,7 +584,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -634,7 +630,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -684,7 +680,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -698,7 +694,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -711,7 +707,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -757,7 +753,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -803,7 +799,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -817,7 +813,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -830,7 +826,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -878,7 +874,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -894,7 +890,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -909,7 +905,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_icon_phonewave.png">
+                                    <img src="~assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -955,7 +951,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -969,7 +965,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1015,7 +1011,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1065,7 +1061,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1079,7 +1075,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1125,7 +1121,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1139,7 +1135,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1152,7 +1148,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1199,7 +1195,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1212,7 +1208,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1226,7 +1222,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1240,7 +1236,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1288,7 +1284,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1302,7 +1298,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1349,7 +1345,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1363,7 +1359,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1376,7 +1372,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1423,7 +1419,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1437,7 +1433,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1485,7 +1481,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1501,7 +1497,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -1516,7 +1512,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_icon_phonewave.png">
+                                    <img src="~assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -1562,7 +1558,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1576,7 +1572,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1589,7 +1585,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1637,7 +1633,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1651,7 +1647,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1664,7 +1660,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1712,7 +1708,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1725,7 +1721,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1740,7 +1736,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1786,7 +1782,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1799,7 +1795,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1813,7 +1809,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1826,7 +1822,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1873,7 +1869,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1922,7 +1918,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1936,7 +1932,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1949,7 +1945,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -1995,7 +1991,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2009,7 +2005,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2056,7 +2052,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2070,7 +2066,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2083,7 +2079,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2096,7 +2092,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2109,7 +2105,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2158,7 +2154,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2175,7 +2171,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2221,7 +2217,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2268,7 +2264,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2318,7 +2314,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2334,7 +2330,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2349,7 +2345,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_icon_phonewave.png">
+                                    <img src="~assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -2395,7 +2391,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2410,7 +2406,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2457,7 +2453,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2474,7 +2470,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2522,7 +2518,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2538,7 +2534,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2584,7 +2580,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2636,7 +2632,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2651,7 +2647,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2664,7 +2660,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2677,7 +2673,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2726,7 +2722,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_phone.png">
+                            <img src="~assets/images/package_icon_phone.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2742,7 +2738,7 @@
                                         <div class="row">
                                           <div class="col-3">
                         <span class="package_icon">
-                            <img src="../assets/images/package_icon_sms.png">
+                            <img src="~assets/images/package_icon_sms.png">
                         </span>
                                           </div>
                                           <div class="col-9">
@@ -2757,7 +2753,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                 <span class="package_icon">
-                                    <img src="../assets/images/package_icon_phonewave.png">
+                                    <img src="~assets/images/package_icon_phonewave.png">
                                 </span>
                                           </div>
                                           <div class="col-9">
@@ -2803,7 +2799,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2818,7 +2814,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2865,7 +2861,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2879,7 +2875,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2892,7 +2888,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2905,7 +2901,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2918,7 +2914,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2967,7 +2963,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2981,7 +2977,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -2994,7 +2990,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3007,7 +3003,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3055,7 +3051,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3069,7 +3065,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3082,7 +3078,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3095,7 +3091,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3108,7 +3104,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3155,7 +3151,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3170,7 +3166,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3218,7 +3214,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3233,7 +3229,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3246,7 +3242,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3259,7 +3255,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3306,7 +3302,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3321,7 +3317,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3367,7 +3363,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3381,7 +3377,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3394,7 +3390,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3407,7 +3403,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3456,7 +3452,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3470,7 +3466,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3483,7 +3479,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3529,7 +3525,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3543,7 +3539,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3556,7 +3552,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3602,7 +3598,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3651,7 +3647,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3701,7 +3697,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3748,7 +3744,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3763,7 +3759,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3776,7 +3772,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3825,7 +3821,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3839,7 +3835,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3852,7 +3848,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3899,7 +3895,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3914,7 +3910,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3927,7 +3923,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -3973,7 +3969,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4022,7 +4018,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4036,7 +4032,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4049,7 +4045,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4095,7 +4091,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4109,7 +4105,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4156,7 +4152,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4170,7 +4166,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4183,7 +4179,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4259,7 +4255,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4273,7 +4269,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4286,7 +4282,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4300,7 +4296,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4313,7 +4309,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4326,7 +4322,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4379,7 +4375,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4393,7 +4389,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4406,7 +4402,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4420,7 +4416,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4433,7 +4429,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4481,7 +4477,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4495,7 +4491,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4508,7 +4504,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4522,7 +4518,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4535,7 +4531,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4589,7 +4585,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4603,7 +4599,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4616,7 +4612,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4630,7 +4626,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4643,7 +4639,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4656,7 +4652,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4720,7 +4716,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4734,7 +4730,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4748,7 +4744,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4762,7 +4758,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4775,7 +4771,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4821,7 +4817,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4835,7 +4831,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4849,7 +4845,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4862,7 +4858,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4875,7 +4871,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4921,7 +4917,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4935,7 +4931,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4949,7 +4945,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4963,7 +4959,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -4976,7 +4972,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5024,7 +5020,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5038,7 +5034,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5052,7 +5048,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5066,7 +5062,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5079,7 +5075,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5125,7 +5121,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5140,7 +5136,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5155,7 +5151,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5169,7 +5165,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5215,7 +5211,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5230,7 +5226,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5245,7 +5241,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5258,7 +5254,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5306,7 +5302,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5321,7 +5317,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5336,7 +5332,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5350,7 +5346,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5396,7 +5392,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5411,7 +5407,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5426,7 +5422,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5439,7 +5435,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5453,7 +5449,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5499,7 +5495,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5513,7 +5509,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5527,7 +5523,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5541,7 +5537,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5554,7 +5550,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5602,7 +5598,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5616,7 +5612,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5630,7 +5626,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5644,7 +5640,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5657,7 +5653,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5703,7 +5699,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5717,7 +5713,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5731,7 +5727,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5745,7 +5741,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5758,7 +5754,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5804,7 +5800,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5819,7 +5815,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5834,7 +5830,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5848,7 +5844,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5896,7 +5892,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5911,7 +5907,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5926,7 +5922,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5972,7 +5968,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -5987,7 +5983,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6002,7 +5998,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6048,7 +6044,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6063,7 +6059,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6078,7 +6074,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6092,7 +6088,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6140,7 +6136,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6155,7 +6151,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6170,7 +6166,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6183,7 +6179,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6197,7 +6193,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6243,7 +6239,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6258,7 +6254,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6273,7 +6269,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6286,7 +6282,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6332,7 +6328,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6346,7 +6342,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6360,7 +6356,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6374,7 +6370,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6388,7 +6384,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6436,7 +6432,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6450,7 +6446,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6464,7 +6460,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6478,7 +6474,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6491,7 +6487,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6537,7 +6533,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6552,7 +6548,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6567,7 +6563,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6581,7 +6577,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6595,7 +6591,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6641,7 +6637,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6656,7 +6652,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6671,7 +6667,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6685,7 +6681,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6733,7 +6729,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6748,7 +6744,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6763,7 +6759,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6809,7 +6805,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6824,7 +6820,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6839,7 +6835,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6853,7 +6849,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6899,7 +6895,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6913,7 +6909,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6927,7 +6923,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6941,7 +6937,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -6954,7 +6950,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7002,7 +6998,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7016,7 +7012,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7030,7 +7026,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7044,7 +7040,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7057,7 +7053,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7103,7 +7099,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7118,7 +7114,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7133,7 +7129,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7147,7 +7143,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7161,7 +7157,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7207,7 +7203,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7221,7 +7217,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7235,7 +7231,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7249,7 +7245,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7263,7 +7259,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7311,7 +7307,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7326,7 +7322,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7341,7 +7337,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7387,7 +7383,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7402,7 +7398,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7417,7 +7413,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7430,7 +7426,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7476,7 +7472,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7490,7 +7486,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7504,7 +7500,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7518,7 +7514,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7567,7 +7563,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7582,7 +7578,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7597,7 +7593,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7610,7 +7606,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7656,7 +7652,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7671,7 +7667,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7686,7 +7682,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7700,7 +7696,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7746,7 +7742,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7761,7 +7757,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7776,7 +7772,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7790,7 +7786,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7839,7 +7835,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7856,7 +7852,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7902,7 +7898,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7917,7 +7913,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7932,7 +7928,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7946,7 +7942,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -7992,7 +7988,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8006,7 +8002,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8020,7 +8016,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8034,7 +8030,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8047,7 +8043,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8095,7 +8091,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8110,7 +8106,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8125,7 +8121,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8139,7 +8135,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8185,7 +8181,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8200,7 +8196,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8215,7 +8211,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8261,7 +8257,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8275,7 +8271,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8289,7 +8285,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8303,7 +8299,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8316,7 +8312,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8364,7 +8360,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8378,7 +8374,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8392,7 +8388,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8406,7 +8402,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8419,7 +8415,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8465,7 +8461,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8479,7 +8475,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8493,7 +8489,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8507,7 +8503,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8553,7 +8549,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8567,7 +8563,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8581,7 +8577,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8595,7 +8591,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8608,7 +8604,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8656,7 +8652,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8671,7 +8667,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8686,7 +8682,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8700,7 +8696,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8746,7 +8742,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8761,7 +8757,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8776,7 +8772,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8790,7 +8786,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8804,7 +8800,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8850,7 +8846,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8865,7 +8861,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8880,7 +8876,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -8949,7 +8945,7 @@
                                         <div class="row">
                                           <div class="col-3">
                                             <span class="package_icon">
-                                                <img src="../assets/images/check.png"
+                                                <img src="~assets/images/check.png"
                                                      style="width:19px; margin-left:1px">
                                             </span>
                                           </div>
@@ -8993,7 +8989,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9039,7 +9035,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9053,7 +9049,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9101,7 +9097,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9147,7 +9143,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9198,7 +9194,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9247,7 +9243,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9294,7 +9290,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9342,7 +9338,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9393,7 +9389,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9439,7 +9435,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9453,7 +9449,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9499,7 +9495,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9548,7 +9544,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9562,7 +9558,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9636,7 +9632,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9688,7 +9684,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9739,7 +9735,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9796,7 +9792,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9847,7 +9843,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9902,7 +9898,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9957,7 +9953,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9970,7 +9966,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9983,7 +9979,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -9996,7 +9992,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10010,7 +10006,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10056,7 +10052,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10074,7 +10070,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10123,7 +10119,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10136,7 +10132,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10191,7 +10187,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10243,7 +10239,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10298,7 +10294,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10351,7 +10347,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10404,7 +10400,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10459,7 +10455,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10516,7 +10512,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10569,7 +10565,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10582,7 +10578,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10633,7 +10629,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10646,7 +10642,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10659,7 +10655,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10672,7 +10668,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10686,7 +10682,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10734,7 +10730,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10787,7 +10783,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10842,7 +10838,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10891,7 +10887,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10942,7 +10938,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>
@@ -10989,7 +10985,7 @@
                                         <div class="row">
                                           <div class="col-3">
                             <span class="package_icon">
-                                <img src="../assets/images/check.png"
+                                <img src="~assets/images/check.png"
                                      style="width:19px; margin-left:1px">
                             </span>
                                           </div>

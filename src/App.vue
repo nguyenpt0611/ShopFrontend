@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar v-show="isShowNav"></Navbar>
+    <Navbar v-show="$route.path !== '/login' ? true : false"></Navbar>
     <router-view/>
     <Footer/>
   </div>
@@ -11,16 +11,15 @@ export default {
   name: 'App',
   data() {
     return {
-      // isShowNav: this.$store.state.isShowNav
     }
   },
   components: {
-    Navbar: () => import('@/components/Navbar'),
-    Footer: () => import('@/components/Footer')
+    Navbar: () => import('@/components/layout/Navbar'),
+    Footer: () => import('@/components/layout/Footer')
   }
 }
 </script>
 
 <style lang="scss">
-  @import "assets/scss/globals/index";
+  @import "~assets/scss/globals/index";
 </style>
