@@ -23,7 +23,7 @@
           freedoo_packages: null,
           other_packages: null
         }
-        API.get('https://mobifreedo.herokuapp.com/api/v1/packages.json')
+        API.get('packages.json')
           .then(response => {
               this.package_data = Object.assign({
                 freedoo_packages: config.data().roaming_packages.freedoo,
