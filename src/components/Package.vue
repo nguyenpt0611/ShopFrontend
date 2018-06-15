@@ -14,7 +14,7 @@ data() {
   }
 },
 created() {
-  this.$store.commit('hidenav');
+  // this.$store.commit('hidenav');
   this.getData()
 },
 methods: {

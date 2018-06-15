@@ -11,7 +11,7 @@ export default {
   name: 'App',
   data() {
     return {
-      isShowNav: this.$store.state.isShowNav
+      // isShowNav: this.$store.state.isShowNav
     }
   },
   components: {
