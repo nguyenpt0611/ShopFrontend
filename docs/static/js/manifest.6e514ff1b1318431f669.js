@@ -29,7 +29,7 @@
     a.type = "text/javascript", a.charset = "utf-8", a.async = !0, a.timeout = 12e4, o.nc && a.setAttribute("nonce", o.nc), a.src = o.p + "ShopFrontend/static/js/" + e + "." + {
       0: "62f9f4e1541010435b59",
       1: "7089d3cab721051641c0",
-      2: "c40d9a05397b6dc53bde",
+      2: "c88252f9edb8a4787ec3",
       3: "406f29d77b76523cb95f",
       4: "0462a401e3b4871bab88",
       5: "736e3827c96899bc1568",
@@ -60,4 +60,4 @@
     throw console.error(e), e
   }
 }([]);
-//# sourceMappingURL=manifest.40cff994449cac577773.js.map
+//# sourceMappingURL=manifest.6e514ff1b1318431f669.js.map
