@@ -1151,32 +1151,32 @@
 
 @font-face {
   font-family: SanFranciscoDisplay-Thin;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Thin.50f8a45.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Thin.50f8a45.otf)
 }
 
 @font-face {
   font-family: SanFranciscoDisplay-Regular;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Regular.bcec8bf.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Regular.bcec8bf.otf)
 }
 
 @font-face {
   font-family: SanFranciscoDisplay-Semibold;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Semibold.621bc42.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Semibold.621bc42.otf)
 }
 
 @font-face {
   font-family: SanFranciscoDisplay-Light;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Light.a2fe882.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Light.a2fe882.otf)
 }
 
 @font-face {
   font-family: SanFranciscoDisplay-Medium;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Medium.31a7392.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Medium.31a7392.otf)
 }
 
 @font-face {
   font-family: SanFranciscoDisplay-Bold;
-  src: url(ShopFronted/static/fonts/SanFranciscoDisplay-Bold.e20ccd6.otf)
+  src: url(/static/fonts/SanFranciscoDisplay-Bold.e20ccd6.otf)
 }
 
 * {
